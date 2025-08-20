@@ -1,7 +1,7 @@
 import * as NavigationBar from "expo-navigation-bar";
 import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { StatusBar } from "react-native";
 import "./globals.css";
 
 export default function RootLayout() {
@@ -12,7 +12,7 @@ export default function RootLayout() {
 
   return (
     <>
-      <StatusBar hidden={true} />
+      <StatusBar style="light" hidden={true} />
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="movies/[id]" options={{ headerShown: false }} />
