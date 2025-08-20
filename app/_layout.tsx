@@ -1,8 +1,22 @@
+import * as NavigationBar from "expo-navigation-bar";
 import { Stack } from "expo-router";
-import "./globals.css"
+import { useEffect } from "react";
+import { StatusBar } from "react-native";
+import "./globals.css";
+
 export default function RootLayout() {
-  return <Stack>
-    <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-    <Stack.Screen name="movies/[id]" options={{ headerShown: false }} />
-  </Stack>;
+  useEffect(() => {
+    // Hide navigation bar on Android
+    NavigationBar.setVisibilityAsync("hidden");
+  }, []);
+
+  return (
+    <>
+      <StatusBar hidden={true} />
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="movies/[id]" options={{ headerShown: false }} />
+      </Stack>
+    </>
+  );
 }
